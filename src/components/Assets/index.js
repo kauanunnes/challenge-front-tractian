@@ -91,7 +91,10 @@ function Assets(props){
       )}
       </ul>
       
-      <Modal title="Detalhes" visible={isModalVisible} footer={[
+      <Modal
+       title="Detalhes" visible={isModalVisible} 
+       onCancel={handleOk} 
+       footer={[
         <Button key="back" onClick={handleOk}>
           Fechar
         </Button>

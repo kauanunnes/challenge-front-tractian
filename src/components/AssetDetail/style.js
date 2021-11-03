@@ -12,7 +12,7 @@ export const DetailsContainer = styled.div`
 
   table {
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
     max-width: 350px;
     margin: 15px 0;
   }

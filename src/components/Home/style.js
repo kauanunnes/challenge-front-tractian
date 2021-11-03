@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 75vw;
+  width: 80vw;
   margin: 15px auto;
 
   display: flex;
@@ -34,7 +34,7 @@ export const Container = styled.div`
       width: 100%;
 
       .highcharts-background {
-        width: 100%;
+        width: 90%;
       }
     }
 
@@ -47,4 +47,13 @@ export const Container = styled.div`
       margin-bottom: 15px;
     } 
   }
+
+  @media only screen and (max-width: 425px) {
+    .warningArea, 
+    .operationArea {
+      width: 90%;
+    }
+
+  }
+
 `

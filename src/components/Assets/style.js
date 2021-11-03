@@ -47,6 +47,15 @@ export const AssetsContainer = styled.div`
         }
       }
     }
-
   }
+  @media only screen and (max-width: 425px) {
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+    }
+  }
+
+  
 `
