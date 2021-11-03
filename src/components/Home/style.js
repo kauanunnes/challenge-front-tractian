@@ -13,7 +13,7 @@ export const Container = styled.div`
     .graphic  {
       width: 100%;
       height: auto;
-      border: 1px solid #f0f0f0;
+      border: 1px solid #d9d9d9;
     }
   }
 

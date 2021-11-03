@@ -20,8 +20,11 @@ export const Container = styled.div`
     
     .loadingCard, 
     .userCard {
-      width: 250px;
+      width: 300px;
       margin-bottom: 15px;
     }
   }
+
+ 
+
 ` 

@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { AssetsContainer } from './style'
 import "antd/dist/antd.css";
 import { Card, Modal, Button } from 'antd'
@@ -9,6 +9,7 @@ import AssetDetail from '../AssetDetail';
 
 function Assets(props){
 
+  let myRef = React.createRef() 
   
   
   const [assetsData, setAssetsData] = useState({
@@ -37,7 +38,8 @@ function Assets(props){
   const [assetId, setAssetId] = useState(null);
 
   const showModal = (e) => {
-    setAssetId(e.target.id)
+    let id = e.target.id
+    setAssetId(id)   
     setIsModalVisible(true);
   };
 
@@ -73,7 +75,7 @@ function Assets(props){
               key={asset.id}
               title={treatingAssetModel(asset.model)} 
               extra={
-                <Link to="#" onClick={showModal} id={asset.id}>Ver mais</Link >
+                <Link to="#" onClick={showModal} ref={myRef} id={asset.id}>Ver mais</Link >
               } 
               className="cardContainer"
             >

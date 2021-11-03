@@ -31,4 +31,10 @@ export const DetailsContainer = styled.div`
   td:nth-child(odd) {
     background-color: #dddddd;
   }
+
+  @media only screen and (max-width: 425px) {
+    img {
+      max-width: 80vw;
+    }
+  }
 `
