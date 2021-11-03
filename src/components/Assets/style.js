@@ -5,7 +5,6 @@ export const AssetsContainer = styled.div`
   padding: 15px;
   background: #fff;
 
-
   ul {
     list-style-type: none;    
     width: 75%;
@@ -21,6 +20,10 @@ export const AssetsContainer = styled.div`
         height: 100%;
         display: flex;
         justify-content: space-around;
+
+        h3 {
+          font-weight: 400;
+        }
 
         img {
           max-width: 150px;
