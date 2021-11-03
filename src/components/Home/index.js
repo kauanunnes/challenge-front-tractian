@@ -95,13 +95,14 @@ function Home(props) {
       inDowntime: 0
     }
     data.forEach(value => {
+      let assets = []
       switch (value.status) {
         case 'inOperation':
           countStatus.inOperation += 1
           break;
         case 'inAlert': 
           countStatus.inAlert ++
-          let assets = inAlertAssets ? inAlertAssets : []
+          assets = inAlertAssets ? inAlertAssets : []  
           assets.push(value)
           setInAlertAssets(assets)
           break;
@@ -112,6 +113,7 @@ function Home(props) {
           break;
       }
     })
+    
     setStatus(countStatus)
   }
 
@@ -137,7 +139,7 @@ function Home(props) {
         dataSource={inAlertAssets}
         renderItem={item => (
           <List.Item>
-            <Typography.Text mark>[{item.mode === 'fan' ? 'Ventilador' : 'Motor'}]</Typography.Text> {item.name}
+            <Typography.Text mark>[{item.model === 'fan' ? 'Ventilador' : 'Motor'}]</Typography.Text> {item.name}
           </List.Item>
         )}
       >
