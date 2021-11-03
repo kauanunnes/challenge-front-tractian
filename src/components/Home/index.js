@@ -19,6 +19,7 @@ function Home(props) {
   })
 
   const [inAlertAssets, setInAlertAssets] = useState([])
+  const [inOperationAssets, setInOperationAssets] = useState([])
 
   const options = {
     chart: {
@@ -95,16 +96,22 @@ function Home(props) {
       inDowntime: 0
     }
     data.forEach(value => {
-      let assets = []
+      let assets = {
+        inAlert: [],
+        inOperation: []
+      }
       switch (value.status) {
         case 'inOperation':
           countStatus.inOperation += 1
+          assets.inOperation = inOperationAssets ? inOperationAssets : []
+          assets.inOperation.push(value)
+          setInOperationAssets(assets.inOperation)
           break;
         case 'inAlert': 
           countStatus.inAlert ++
-          assets = inAlertAssets ? inAlertAssets : []  
-          assets.push(value)
-          setInAlertAssets(assets)
+          assets.inAlert = inAlertAssets ? inAlertAssets : []  
+          assets.inAlert.push(value)
+          setInAlertAssets(assets.inAlert)
           break;
         case 'inDowntime':
           countStatus.inDowntime ++
@@ -133,13 +140,25 @@ function Home(props) {
         </div>
       )}
       <List
-        header={<div>Ativos em alerta</div>}
+        header={<div><h3>Ativos em alerta</h3></div>}
         className="warningArea"
         bordered
         dataSource={inAlertAssets}
         renderItem={item => (
           <List.Item>
             <Typography.Text mark>[{item.model === 'fan' ? 'Ventilador' : 'Motor'}]</Typography.Text> {item.name}
+          </List.Item>
+        )}
+      >
+      </List>
+      <List
+        header={<div><h3>Ativos em operação</h3></div>}
+        className="operationArea"
+        bordered
+        dataSource={inOperationAssets}
+        renderItem={item => (
+          <List.Item>
+            <Typography.Text mark className="highlightedText">[{item.model === 'fan' ? 'Ventilador' : 'Motor'}]</Typography.Text> {item.name}
           </List.Item>
         )}
       >

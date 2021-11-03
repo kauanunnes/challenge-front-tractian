@@ -28,8 +28,25 @@ export const AssetsContainer = styled.div`
         img {
           max-width: 150px;
           height: auto;
+          max-height: 80%;
         }
       }
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    ul {
+      padding: 0;
+      width: 85%;
+      
+      .cardContainer {
+        .cardAsset {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+
   }
 `
